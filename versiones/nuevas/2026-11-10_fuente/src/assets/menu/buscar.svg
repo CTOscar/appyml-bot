@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Buscar" role="img" viewBox="0 0 512 512">
+  <circle cx="212" cy="212" r="140" fill="#E8F0FE"/>
+  <path fill="#fff" opacity=".7" d="M132 180a96 96 0 0 1 78-70 96 96 0 0 0-52 78z"/>
+  <circle cx="212" cy="212" r="140" fill="none" stroke="#4285F4" stroke-width="52"/>
+  <path d="M318 318l128 128" stroke="#EA4335" stroke-width="64" stroke-linecap="round"/>
+  <path d="M358 358l38 38" stroke="#7D2426" stroke-width="20" stroke-linecap="round" opacity=".5"/>
+</svg>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Mi perfil" role="img" viewBox="0 0 512 512">
+  <path fill="#4285F4" d="M72 464c0-108 80-176 184-176s184 68 184 176z"/>
+  <path fill="#1A73E8" d="M256 288c-30 0-58 8-80 24l80 84 80-84c-22-16-50-24-80-24z"/>
+  <circle cx="256" cy="168" r="98" fill="#FBBC04"/>
+  <path fill="#F29900" d="M158 168a98 98 0 0 1 196 0c-40 0-74-18-98-48-24 30-58 48-98 48z"/>
+  <circle cx="390" cy="122" r="34" fill="#34A853"/>
+</svg>

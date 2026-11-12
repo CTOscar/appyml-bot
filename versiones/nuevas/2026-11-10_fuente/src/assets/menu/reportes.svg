@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Reportes" role="img" viewBox="0 0 512 512">
+  <path fill="#4285F4" d="M132 40h176l104 104v292a40 40 0 0 1-40 40H132a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40z"/>
+  <path fill="#1A73E8" d="M308 40l104 104H348a40 40 0 0 1-40-40z"/>
+  <rect x="148" y="188" width="132" height="24" rx="12" fill="#fff" opacity=".9"/>
+  <rect x="148" y="300" width="52" height="112" rx="10" fill="#FBBC04"/>
+  <rect x="230" y="248" width="52" height="164" rx="10" fill="#34A853"/>
+  <rect x="312" y="204" width="52" height="208" rx="10" fill="#EA4335"/>
+</svg>

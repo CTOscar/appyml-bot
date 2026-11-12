@@ -1,0 +1,98 @@
+# Instaladores del bot «Agente agrícola»: Windows (NSIS x64/arm64), Linux (AppImage/deb/rpm x64/arm64) y Android (APK firmado).
+# Se lanza a mano (Actions → Instaladores → Run workflow) o al subir una etiqueta «apps-v*».
+# Secretos opcionales:
+#   WIN_CSC_LINK / WIN_CSC_KEY_PASSWORD  certificado de firma de código de Windows (.pfx en base64). Sin él, el .exe sale sin firmar
+#                                        y «Smart App Control» de Windows 11 lo bloquea.
+#   ANDROID_KEYSTORE_B64 / ANDROID_KEYSTORE_PASSWORD / ANDROID_KEY_ALIAS / ANDROID_KEY_PASSWORD   firma del APK.
+name: Instaladores
+on:
+  workflow_dispatch:
+  push:
+    tags: ['apps-v*']
+
+env:
+  FUENTE: versiones/nuevas/2026-11-10_fuente
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci
+        working-directory: ${{ env.FUENTE }}
+      - run: npm run apps:web
+        working-directory: ${{ env.FUENTE }}
+      - uses: actions/upload-artifact@v4
+        with: { name: web, path: '${{ env.FUENTE }}/apps/web', retention-days: 3 }
+
+  escritorio:
+    needs: web
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: windows-latest, comando: 'electron-builder --win nsis --x64', nombre: win-x64 }
+          - { os: windows-latest, comando: 'electron-builder --win nsis --arm64', nombre: win-arm64 }
+          - { os: ubuntu-latest, comando: 'electron-builder --linux AppImage deb rpm --x64', nombre: linux-x64 }
+          - { os: ubuntu-latest, comando: 'electron-builder --linux AppImage deb rpm --arm64', nombre: linux-arm64 }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { name: web, path: '${{ env.FUENTE }}/apps/web' }
+      - name: Dependencias de rpm
+        if: startsWith(matrix.os, 'ubuntu')
+        run: sudo apt-get update && sudo apt-get install -y rpm
+      - run: npm install
+        working-directory: ${{ env.FUENTE }}/apps/desktop
+      - run: npx ${{ matrix.comando }} --publish never
+        working-directory: ${{ env.FUENTE }}/apps/desktop
+        env:
+          CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: escritorio-${{ matrix.nombre }}
+          path: |
+            ${{ env.FUENTE }}/apps/release/desktop/*.exe
+            ${{ env.FUENTE }}/apps/release/desktop/*.AppImage
+            ${{ env.FUENTE }}/apps/release/desktop/*.deb
+            ${{ env.FUENTE }}/apps/release/desktop/*.rpm
+
+  android:
+    needs: web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - uses: android-actions/setup-android@v3
+      - uses: actions/download-artifact@v4
+        with: { name: web, path: '${{ env.FUENTE }}/apps/web' }
+      - run: npm install
+        working-directory: ${{ env.FUENTE }}/apps/android
+      - name: Firma (si hay secretos)
+        working-directory: ${{ env.FUENTE }}/apps/android
+        env:
+          KS: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+        run: |
+          if [ -n "$KS" ]; then
+            echo "$KS" | base64 -d > release.keystore
+            printf 'storeFile=%s\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\n' "$PWD/release.keystore" "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" "${{ secrets.ANDROID_KEY_ALIAS }}" "${{ secrets.ANDROID_KEY_PASSWORD }}" > keystore.properties
+          else
+            echo "::warning::Sin ANDROID_KEYSTORE_B64: el APK saldrá sin firma de lanzamiento."
+          fi
+      - run: npx cap sync android
+        working-directory: ${{ env.FUENTE }}/apps/android
+      - run: chmod +x gradlew && ./gradlew assembleRelease
+        working-directory: ${{ env.FUENTE }}/apps/android/android
+      - run: cp app/build/outputs/apk/release/*.apk "../Agente-agricola-$(node -p "require('../../config.json').version")-android.apk"
+        working-directory: ${{ env.FUENTE }}/apps/android/android
+      - uses: actions/upload-artifact@v4
+        with: { name: android, path: '${{ env.FUENTE }}/apps/android/*.apk' }

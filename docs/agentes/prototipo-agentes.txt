@@ -1,0 +1,140 @@
+Prototipo 1: Sistema Multi-Agente para Gestión de Flotas (Claude + MCP)
+📌 1. Visión General
+Este proyecto implementa un sistema conversacional y analítico para la gestión de maquinaria agrícola (tractores, implementos), basado en la arquitectura de Claude (Anthropic).
+
+Para optimizar costos y latencia, se utiliza una arquitectura de enrutamiento por canal (Model Routing). En lugar de usar un solo modelo gigante para todo, el sistema divide las tareas en 3 agentes especializados, cada uno potenciado por un modelo de Claude distinto, pero compartiendo la misma capa de datos a través de MCP (Model Context Protocol).
+
+🧩 Módulos de Negocio (Dominio)
+El sistema cubre los 6 módulos operativos reales:
+
+Catálogo de flota: ACCIONES = Tractores, implementos, operadores, lotes.
+
+Operación en campo:ACCIONES = Asignaciones, checklists pre-uso, reportes de fallas.
+
+Telemetría GPS y diésel: Horas motor, ubicación, niveles de diésel, alertas.
+
+Taller:ACCIONES =  Órdenes de Trabajo (OT), diagnósticos, refacciones, liberación. Almacén: Inventario de refacciones, filtros, aceites, llantas. Costos KPIs, app operador osea= el chat con (assistant-ui) Tablero
+
+
+
+Costos y KPIs: MTBF, MTTR, L/ha, costo por hora, disponibilidad.
+
+🤖 2. Los 3 Agentes (Enrutamiento por Complejidad/Canal)
+Agente 1: Bot_Campo (Modelo: Claude Haiku)
+Canal: Voz / App Móvil (Operadores y Jefes de Campo).
+
+Módulos que cubre: 01 Catálogo, 02 Operación, 03 Telemetría.
+
+Tareas: Consultas rápidas ("¿Qué tractor tengo asignado?"), llenado de checklists, reporte de fallas, consulta de nivel de diésel.
+
+¿Por qué Haiku? Respuestas ultrarrápidas (voz), bajo costo, tareas de extracción y registro simples.
+
+Herramientas (MCP): leer_catalogo, crear_checklist, reportar_falla, leer_telemetria_actual.
+
+Agente 2: Bot_Taller_Analisis (Modelo: Claude Sonnet)
+Canal: Web / Escritorio (Jefe de Taller, Almacenista).
+
+Módulos que cubre: 04 Taller, 05 Almacén, 06 Costos (Cruce de datos).
+
+Tareas: "Cruza las horas motor (telemetría) con las refacciones usadas en la OT #45", "Genera un script en Python para calcular el MTTR de este mes", "¿Hay existencia en almacén para esta OT?".
+
+¿Por qué Sonnet? Excelente para razonamiento medio, generación de código Python/SQL y cruce de datos.
+
+Herramientas (MCP): consultar_bd, ejecutar_python (Data Analysis), leer_ot, consultar_inventario.
+
+Agente 3: Bot_Estrategia (Modelo: Claude Opus)
+Canal: Web / Reuniones (Dirección, Jefe de Maquinaria).
+
+Módulos que cubre: 06 Costos y KPIs, Visión global.
+
+Tareas: "¿Reparamos el tractor 05 o lo rentamos?", "Lee este diagrama de flujo de mantenimiento y dime dónde está el cuello de botella", "Diseña el plan de mantenimiento anual".
+
+¿Por qué Opus? Máxima capacidad de razonamiento profundo, análisis financiero complejo y visión avanzada (lectura de diagramas en imagen).
+
+Herramientas (MCP): Todas (solo lectura), leer_diagrama (Vision), generar_pdf.
+
+
+
+            🔌 3  MCP Arquitectura de Conexion
+
+El sistema no tiene integraciones "cableadas" directamente a los modelos. Se utilizan Servidores MCP centralizados que cualquier agente puede consultar según sus permisos.
+
+MCP Server 1: Fleet-DB
+
+Función: Expone la base de datos (PostgreSQL) de los 6 módulos.
+
+Uso: Haiku escribe (checklists), Sonnet lee/escribe (OTs), Opus solo lee (KPIs).
+
+MCP Server 2: Telemetry-IoT
+
+Función: API de los GPS y sensores de los tractores.
+
+Uso: Haiku consulta alertas; Sonnet analiza consumos.
+
+MCP Server 3: Python-Sandbox
+
+Función: Entorno seguro para ejecutar código Python generado por el modelo.
+
+Uso: Exclusivo de Sonnet y Opus para análisis de KPIs.
+
+MCP Server 4: Docs-Flows
+
+Función: Repositorio de imágenes (diagramas de flujo) y manuales PDF.
+
+Uso: Opus y Sonnet para lectura con visión.
+
+
+ 
+
+        ⚙️ 4. Lógica de Enrutamiento (Router)
+
+def enrutar_peticion(user_role, channel, prompt):
+    # 1. Enrutamiento por Canal/Rol
+    if channel == "voz_movil" or user_role == "operador":
+        return llamar_claude("claude-haiku-4-5", prompt, tools=["leer_catalogo", "crear_checklist"])
+        
+    elif user_role == "jefe_taller" or channel == "web_taller":
+        return llamar_claude("claude-sonnet-5", prompt, tools=["consultar_bd", "ejecutar_python"])
+        
+    elif user_role == "director" or channel == "web_estrategia":
+        return llamar_claude("claude-opus-5", prompt, tools=["consultar_bd", "leer_imagen"])
+        
+    else:
+        # Fallback por defecto: modelo rápido
+        return llamar_claude("claude-haiku-4-5", prompt)
+
+
+
+
+📈 5. Flujo de Ejemplo (Caso de Uso Real)
+Situación: El Tractor #12 lanza una alerta de "caída brusca de nivel de diésel" (Módulo 3).
+
+Haiku (Bot_Campo): Recibe la alerta del sistema IoT y se la dicta por voz al operador: "Oye, reportan caída de diésel en el Tractor 12. ¿Quieres abrir un reporte de anomalía?" El operador dice que sí y Haiku llena el checklist (Módulo 2).
+
+Sonnet (Bot_Taller): El Jefe de Taller entra a la web. Pregunta: "¿Cuánto nos ha costado el diésel del Tractor 12 este mes vs el anterior?" Sonnet consulta la BD (MCP Fleet-DB), usa el Sandbox de Python (MCP) y le devuelve una gráfica de consumo (L/h).
+
+Opus (Bot_Estrategia): Dirección le pide a Opus: "Toma los costos de este mes y el MTBF del tractor 12, y léeme este diagrama de flujo de mantenimiento [imagen]. ¿Qué me recomiendas?" Opus analiza el diagrama con visión, cruza los KPIs y sugiere cambiar el intervalo de mantenimiento preventivo o dar de baja la unidad.
+
+ 
+ TEMAS PENDIENTES AUN NO RETOMADOS HASTA PASAR ESTE PROTOTIPO 1 Y QUE LO VERIFIQUEN PARA  DAR CONTINUIDAD CON EL Y TRABAJA CON EL
+
+🚀 6. Próximos pasos (Fase 2)
+Definir System Prompts: Redactar las instrucciones de sistema (personalidad y reglas) para cada uno de los 3 agentes.
+
+Mapeo de Tools MCP: Escribir los esquemas JSON de las herramientas (tools) que los agentes podrán invocar (ej. cómo se ve la función crear_checklist).
+
+Escalado (Fallback): Implementar que, si Haiku (Campo) falla o no sabe responder, la petición escale automáticamente a Sonnet.
+
+Telemetría del Sistema: Implementar un log para medir cuántos tokens gasta cada agente y validar el ahorro de costos.
+    
+
+
+
+
+
+
+
+
+
+
+

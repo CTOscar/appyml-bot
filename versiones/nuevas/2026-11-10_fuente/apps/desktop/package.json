@@ -1,0 +1,93 @@
+{
+  "name": "agente-agricola",
+  "productName": "Agente agrícola",
+  "version": "1.0.0",
+  "description": "Agente agrícola · Las Cabras: el asistente del taller como app de escritorio.",
+  "author": "BuildWise Labs",
+  "homepage": "https://panelpack.buildwiselabs.net",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis --x64 && electron-builder --win nsis --arm64",
+    "dist:linux": "electron-builder --linux AppImage deb rpm --x64 && electron-builder --linux AppImage deb rpm --arm64",
+    "dist:dir": "electron-builder --dir",
+    "dist:win:local": "electron-builder --win portable --x64 && electron-builder --win nsis --arm64",
+    "dist:linux:local": "electron-builder --linux tar.gz --x64 && electron-builder --linux tar.gz --arm64"
+  },
+  "devDependencies": {
+    "electron": "45.3.1",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "net.buildwiselabs.agente",
+    "productName": "Agente agrícola",
+    "copyright": "© BuildWise Labs",
+    "directories": {
+      "output": "../release/desktop",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../web",
+        "to": "web"
+      }
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.png",
+      "artifactName": "Agente-agricola-${version}-windows-${arch}-instalador.${ext}",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Agente agrícola",
+      "uninstallDisplayName": "Agente agrícola"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "icon": "build/icon.png",
+      "category": "Office",
+      "maintainer": "BuildWise Labs <contacto@buildwiselabs.net>",
+      "synopsis": "Asistente del taller agrícola",
+      "artifactName": "Agente-agricola-${version}-linux-${arch}.${ext}"
+    },
+    "deb": {
+      "depends": [
+        "libgtk-3-0",
+        "libnotify4",
+        "libnss3",
+        "libxss1",
+        "libxtst6",
+        "xdg-utils",
+        "libatspi2.0-0",
+        "libuuid1",
+        "libsecret-1-0"
+      ]
+    },
+    "portable": {
+      "artifactName": "Agente-agricola-${version}-windows-${arch}-portable.${ext}"
+    }
+  },
+  "allowScripts": {
+    "electron@45.3.1": true
+  }
+}

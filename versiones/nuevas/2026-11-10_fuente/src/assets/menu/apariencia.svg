@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Apariencia" role="img" viewBox="0 0 512 512">
+  <path fill="#FDD663" d="M256 52C142 52 48 140 48 250c0 82 60 122 114 122 40 0 40 28 40 48 0 30 24 44 56 44 118 0 206-90 206-206C464 130 380 52 256 52z"/>
+  <circle cx="150" cy="226" r="38" fill="#EA4335"/><circle cx="244" cy="144" r="38" fill="#4285F4"/>
+  <circle cx="352" cy="190" r="38" fill="#34A853"/><circle cx="388" cy="298" r="38" fill="#1A73E8"/>
+  <circle cx="190" cy="344" r="36" fill="#fff"/>
+</svg>

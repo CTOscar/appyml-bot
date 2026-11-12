@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Status" role="img" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="196" fill="#E6F4EA" stroke="#34A853" stroke-width="40"/>
+  <path d="M84 268h92l36-104 76 200 42-96h98" fill="none" stroke="#EA4335" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="400" cy="112" r="30" fill="#34A853"/>
+</svg>

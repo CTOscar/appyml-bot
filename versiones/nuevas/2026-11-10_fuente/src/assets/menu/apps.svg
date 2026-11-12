@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Aplicaciones" role="img" viewBox="0 0 512 512">
+  <rect x="64" y="96" width="384" height="256" rx="28" fill="#E8F0FE" stroke="#4285F4" stroke-width="32"/>
+  <path d="M192 416h128M256 352v64" stroke="#4285F4" stroke-width="32" stroke-linecap="round"/>
+  <path d="M256 150v110m0 0l-44-44m44 44l44-44" fill="none" stroke="#34A853" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

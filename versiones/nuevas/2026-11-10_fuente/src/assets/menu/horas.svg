@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Horas" role="img" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="206" fill="#E8F0FE" stroke="#4285F4" stroke-width="44"/>
+  <path d="M256 138v122l82 52" fill="none" stroke="#EA4335" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="260" r="26" fill="#3C4043"/>
+  <circle cx="256" cy="72" r="14" fill="#FBBC04"/><circle cx="440" cy="256" r="14" fill="#FBBC04"/>
+  <circle cx="256" cy="440" r="14" fill="#FBBC04"/><circle cx="72" cy="256" r="14" fill="#FBBC04"/>
+</svg>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Enlaces" role="img" viewBox="0 0 512 512">
+  <g transform="rotate(-45 256 256)" fill="none" stroke-width="46">
+    <rect x="52" y="190" width="244" height="132" rx="66" stroke="#4285F4"/>
+    <rect x="216" y="190" width="244" height="132" rx="66" stroke="#34A853"/>
+  </g>
+  <circle cx="404" cy="108" r="30" fill="#FBBC04"/>
+  <circle cx="108" cy="404" r="30" fill="#EA4335"/>
+</svg>

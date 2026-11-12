@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Almacén" role="img" viewBox="0 0 512 512">
+  <path fill="#FDD663" d="M256 56l180 100-180 100L76 156z"/>
+  <path fill="#FBBC04" d="M76 156l180 100v200L76 356z"/>
+  <path fill="#F29900" d="M436 156L256 256v200l180-100z"/>
+  <path fill="#4285F4" d="M166 106l180 100-44 24-180-100z"/>
+  <path fill="#1A73E8" d="M256 256l46-26v78l-46 26z" opacity=".0"/>
+  <rect x="330" y="336" width="62" height="22" rx="11" fill="#fff" opacity=".7" transform="rotate(-29 361 347)"/>
+</svg>

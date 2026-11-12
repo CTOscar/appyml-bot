@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Superficie" role="img" viewBox="0 0 512 512">
+  <path fill="#34A853" d="M96 332L170 116h260l-74 216z"/>
+  <path d="M150 220h262M126 276h262M174 164h262" stroke="#8BC34A" stroke-width="22" stroke-linecap="round"/>
+  <rect x="48" y="384" width="416" height="64" rx="16" fill="#FBBC04"/>
+  <g stroke="#B06000" stroke-width="12" stroke-linecap="round"><path d="M96 384v28M144 384v40M192 384v28M240 384v40M288 384v28M336 384v40M384 384v28M432 384v40"/></g>
+</svg>

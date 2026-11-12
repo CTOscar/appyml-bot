@@ -1,0 +1,17 @@
+{
+  "nombre": "Agente agrícola",
+  "nombreLargo": "Agente agrícola · Las Cabras",
+  "appId": "net.buildwiselabs.agente",
+  "version": "1.0.0",
+  "autor": "BuildWise Labs",
+  "sitio": "https://panelpack.buildwiselabs.net",
+  "servidor": {
+    "panelApi": "https://api-panelpack.buildwiselabs.net",
+    "agentes": "https://api-agentes.buildwiselabs.net"
+  },
+  "_notas": [
+    "panelApi: la API del panel (cuentas, foto, ajustes). Lo elegiste tú: api-panelpack.buildwiselabs.net.",
+    "agentes: el servicio de agentes (chat con IA). SUPUESTO tomado de panel-flota-agents/README.md («api-agentes.»): cámbialo si lo publicas en otra dirección y vuelve a compilar. Si no responde, el bot contesta con sus reglas locales.",
+    "Después de cambiar algo aquí: npm run apps:web y compila de nuevo la app que corresponda."
+  ]
+}

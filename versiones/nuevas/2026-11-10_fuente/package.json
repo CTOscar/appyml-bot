@@ -1,0 +1,38 @@
+{
+  "name": "panel-flota-fuente",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Panel de flota Las Cabras (código fuente). React + Vite + Tailwind; reemplaza al bundle parchado de 2026-11-07_recuperado.",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "predev": "node scripts/build-tokens.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/build-tokens.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "apps:web": "node apps/build-web.mjs",
+    "apps:manifest": "node apps/make-manifest.mjs"
+  },
+  "dependencies": {
+    "@assistant-ui/react": "0.15.31",
+    "@assistant-ui/react-markdown": "0.14.24",
+    "@fontsource-variable/dm-sans": "5.3.0",
+    "@fontsource-variable/inter": "5.3.0",
+    "clsx": "2.1.1",
+    "leaflet": "1.9.4",
+    "lucide-react": "1.61.0",
+    "react": "19.2.9",
+    "react-dom": "19.2.9"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@testing-library/react": "16.3.3",
+    "@vitejs/plugin-react": "6.1.2",
+    "jsdom": "30.1.3",
+    "tailwindcss": "4.3.3",
+    "vite": "8.3.5",
+    "vitest": "4.1.12"
+  }
+}

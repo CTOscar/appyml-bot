@@ -1,0 +1,16 @@
+{
+  "appId": "net.buildwiselabs.agente",
+  "appName": "Agente agrícola",
+  "webDir": "../web",
+  "backgroundColor": "#050a07",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false
+  },
+  "plugins": {
+    "CapacitorCookies": { "enabled": true },
+    "CapacitorHttp": { "enabled": true }
+  }
+}

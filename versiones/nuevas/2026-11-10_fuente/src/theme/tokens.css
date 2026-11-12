@@ -1,0 +1,174 @@
+/* GENERADO por scripts/build-tokens.mjs desde design/tokens.json: no se edita a mano.
+
+   Para cambiar colores usa `npm run tokens` tras editar el JSON, o el servidor MCP (design/mcp-server.mjs). */
+
+:root, [data-theme="sobrio"] {
+  color-scheme: light;
+  --t-night: #f2f3f5;
+  --t-deep: #e4e7ec;
+  --t-panel: #ffffff;
+  --t-raise: #eceef2;
+  --t-line: #cfd4dc;
+  --t-fg: #1b2330;
+  --t-soft: #374151;
+  --t-muted: #555f6d;
+  --t-faint: #677081;
+  --t-accent: #2b5c8f;
+  --t-accent-strong: #1f4a75;
+  --t-ok: #1b7a43;
+  --t-warn: #8f5800;
+  --t-crit: #b3261e;
+  --t-info: #1c6a93;
+  --t-onfg: #f2f3f5;
+  --t-ink: #1b2330;
+  --t-shadow: #1b2330;
+  --t-glass: #ffffff;
+  --t-sky: #f2f3f5;
+  --t-dawn: #f2f3f5;
+  --t-ground: #f2f3f5;
+  --t-map: #e9ecf0;
+  --t-hair-a: 1.6;
+  --t-glass-a1: 1;
+  --t-glass-a2: 1;
+  --t-glow: 0;
+  --t-stars: 0;
+  --t-dawn-a: 0;
+  --t-hair-w: 1px;
+  --t-radius-glass: 0.75rem;
+  --t-tile-filter: none;
+  --ink-rgb: 27 35 48;
+  --shadow-rgb: 27 35 48;
+  --glass-rgb: 255 255 255;
+  --sky-rgb: 242 243 245;
+  --dawn-rgb: 242 243 245;
+  --accent-rgb: 43 92 143;
+  --accent-strong-rgb: 31 74 117;
+  --night-rgb: 242 243 245;
+  --ok-rgb: 27 122 67;
+  --warn-rgb: 143 88 0;
+  --crit-rgb: 179 38 30;
+  --info-rgb: 28 106 147;
+}
+
+[data-theme="deepseek"] {
+  color-scheme: light;
+  --t-night: #ffffff;
+  --t-deep: #f0f0f0;
+  --t-panel: #ffffff;
+  --t-raise: #f5f5f5;
+  --t-line: #dbdbdb;
+  --t-fg: #0f1115;
+  --t-soft: #3a3c3f;
+  --t-muted: #717274;
+  --t-faint: #909192;
+  --t-accent: #4762ea;
+  --t-accent-strong: #637aed;
+  --t-ok: #1b7a43;
+  --t-warn: #8f5800;
+  --t-crit: #b3261e;
+  --t-info: #1c6a93;
+  --t-onfg: #ffffff;
+  --t-ink: #262626;
+  --t-shadow: #262626;
+  --t-glass: #ffffff;
+  --t-sky: #dfe4ff;
+  --t-dawn: #4d6bfe;
+  --t-ground: #f5f5f5;
+  --t-map: #ffffff;
+  --t-hair-a: 1.5;
+  --t-glass-a1: 0.8;
+  --t-glass-a2: 0.6;
+  --t-glow: 0;
+  --t-stars: 0;
+  --t-dawn-a: 0.5;
+  --t-hair-w: 1px;
+  --t-radius-glass: 1rem;
+  --t-tile-filter: none;
+  --ink-rgb: 38 38 38;
+  --shadow-rgb: 38 38 38;
+  --glass-rgb: 255 255 255;
+  --sky-rgb: 223 228 255;
+  --dawn-rgb: 77 107 254;
+  --accent-rgb: 71 98 234;
+  --accent-strong-rgb: 99 122 237;
+  --night-rgb: 255 255 255;
+  --ok-rgb: 27 122 67;
+  --warn-rgb: 143 88 0;
+  --crit-rgb: 179 38 30;
+  --info-rgb: 28 106 147;
+}
+
+[data-theme="deepseek-oscuro"] {
+  color-scheme: dark;
+  --t-night: #292a2d;
+  --t-deep: #393a3c;
+  --t-panel: #2a2b2d;
+  --t-raise: #323335;
+  --t-line: #464749;
+  --t-fg: #e8eaed;
+  --t-soft: #c5c6c9;
+  --t-muted: #a0a2a6;
+  --t-faint: #747578;
+  --t-accent: #7b90ff;
+  --t-accent-strong: #586fd8;
+  --t-ok: #6fd48f;
+  --t-warn: #f2b544;
+  --t-crit: #ff6f61;
+  --t-info: #7fb8d8;
+  --t-onfg: #232426;
+  --t-ink: #ffffff;
+  --t-shadow: #000000;
+  --t-glass: #ffffff;
+  --t-sky: #282d40;
+  --t-dawn: #4d6bfe;
+  --t-ground: #2c2d2f;
+  --t-map: #1c1d1e;
+  --t-hair-a: 1;
+  --t-glass-a1: 0.055;
+  --t-glass-a2: 0.025;
+  --t-glow: 0;
+  --t-stars: 0;
+  --t-dawn-a: 0;
+  --t-hair-w: 1px;
+  --t-radius-glass: 1rem;
+  --t-tile-filter: invert(1) hue-rotate(160deg) brightness(0.72) contrast(0.95) saturate(0.4) sepia(0.12);
+  --ink-rgb: 255 255 255;
+  --shadow-rgb: 0 0 0;
+  --glass-rgb: 255 255 255;
+  --sky-rgb: 40 45 64;
+  --dawn-rgb: 77 107 254;
+  --accent-rgb: 123 144 255;
+  --accent-strong-rgb: 88 111 216;
+  --night-rgb: 41 42 45;
+  --ok-rgb: 111 212 143;
+  --warn-rgb: 242 181 68;
+  --crit-rgb: 255 111 97;
+  --info-rgb: 127 184 216;
+}
+
+/* Texto y controles sobre fotos o mapas: conservan los valores oscuros en cualquier tema. */
+.on-photo {
+  color-scheme: dark;
+  --t-fg: #e8eaed;
+  --t-soft: #c5c6c9;
+  --t-muted: #a0a2a6;
+  --t-faint: #747578;
+  --t-accent: #7b90ff;
+  --t-accent-strong: #586fd8;
+  --t-ok: #6fd48f;
+  --t-warn: #f2b544;
+  --t-crit: #ff6f61;
+  --t-info: #7fb8d8;
+  --t-onfg: #232426;
+  --t-ink: #ffffff;
+  --accent-rgb: 123 144 255;
+  --accent-strong-rgb: 88 111 216;
+  --ok-rgb: 111 212 143;
+  --warn-rgb: 242 181 68;
+  --crit-rgb: 255 111 97;
+  --info-rgb: 127 184 216;
+  --ink-rgb: 255 255 255;
+  --t-hair-a: 1;
+  --t-hair-w: 1px;
+  color: var(--t-fg);
+}

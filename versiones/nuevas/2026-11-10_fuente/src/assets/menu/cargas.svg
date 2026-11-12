@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Cargas" role="img" viewBox="0 0 512 512">
+  <rect x="48" y="400" width="416" height="40" rx="20" fill="#E8EAED"/>
+  <path d="M72 352l120-120 80 80 150-160" fill="none" stroke="#34A853" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M340 152h110v110" fill="none" stroke="#34A853" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

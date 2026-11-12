@@ -1,0 +1,26 @@
+{
+  "name": "panel-flota-agents",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Servicio de agentes (Claude + MCP) del panel de flota de Las Cabras. Prototipo 1.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "dev": "node --watch src/server.mjs",
+    "test": "node --test \"test/*.test.mjs\"",
+    "check:db": "node scripts/check-db.mjs",
+    "sync:equipos": "node scripts/sync-equipos.mjs",
+    "sync:equipos:traccar": "node scripts/sync-equipos-traccar.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.7.0",
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "dotenv": "16.6.1",
+    "express": "4.22.3",
+    "mysql2": "3.24.6",
+    "zod": "4.6.7"
+  }
+}

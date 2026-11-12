@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Lotes" role="img" viewBox="0 0 512 512">
+  <path fill="#34A853" d="M40 112l190-48v176L40 280z"/>
+  <path fill="#FBBC04" d="M262 56l210 52v168l-210-40z"/>
+  <path fill="#1A73E8" d="M40 312l190 56v96L40 400z"/>
+  <path fill="#8BC34A" d="M262 376l210-60v108l-210 48z"/>
+  <path fill="#EA4335" d="M256 112a58 58 0 0 1 116 0c0 58-58 58-58 130 0-72-58-72-58-130"/>
+  <circle cx="314" cy="116" r="20" fill="#7D2426"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Panel de Flota · Las Cabras</title>
+  <style>
+    /* Pestaña oscura del navegador: verde más claro para que el cuadro no se pierda */
+    @media (prefers-color-scheme: dark) { .bg{fill:#2a8f4a} }
+  </style>
+  <!-- fondo: cuadro redondeado verde -->
+  <rect class="bg" width="64" height="64" rx="15" fill="#14562a"/>
+  <!-- alfiler GPS amarillo -->
+  <path fill="#ffcf33" d="M32 7C21.5 7 13.5 15 13.5 25.5 13.5 38.5 32 57 32 57S50.5 38.5 50.5 25.5C50.5 15 42.5 7 32 7Z"/>
+  <circle cx="32" cy="25.5" r="12" fill="#fff"/>
+  <!-- hoja dentro del alfiler: agricultura -->
+  <path fill="#1b7a38" d="M24.5 31C24 23.5 29 19 38.5 19.2 39 27.5 34.5 32 24.5 31Z"/>
+  <path d="M25 31.5 34 23" fill="none" stroke="#1b7a38" stroke-width="2" stroke-linecap="round"/>
+</svg>

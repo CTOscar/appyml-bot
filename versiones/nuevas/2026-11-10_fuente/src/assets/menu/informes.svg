@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Informes" role="img" viewBox="0 0 512 512">
+  <g fill="none" stroke-width="112" transform="rotate(-90 256 256)">
+    <circle cx="256" cy="256" r="150" stroke="#34A853" stroke-dasharray="377 565.5" stroke-dashoffset="0"/>
+    <circle cx="256" cy="256" r="150" stroke="#FBBC04" stroke-dasharray="283 659.5" stroke-dashoffset="-377"/>
+    <circle cx="256" cy="256" r="150" stroke="#4285F4" stroke-dasharray="188.5 754" stroke-dashoffset="-660"/>
+    <circle cx="256" cy="256" r="150" stroke="#EA4335" stroke-dasharray="94 848.5" stroke-dashoffset="-848.5"/>
+  </g>
+  <circle cx="256" cy="256" r="62" fill="#fff"/>
+</svg>

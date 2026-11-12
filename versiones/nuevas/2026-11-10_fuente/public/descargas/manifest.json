@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "archivos": [
+    {
+      "os": "android",
+      "arch": null,
+      "kind": "apk",
+      "file": "Agente-agricola-1.0.0-android.apk",
+      "size": 11083741,
+      "sha256": "2fc902bb7e1d0b5c4254006a65e958f1511bb740bd66b41dab6a4847b6f42d60"
+    },
+    {
+      "os": "linux",
+      "arch": "arm64",
+      "kind": "tar.gz",
+      "file": "Agente-agricola-1.0.0-linux-arm64.tar.gz",
+      "size": 128789223,
+      "sha256": "874c7f61ae8f46ab913bb99136d49dee94bbd468ceca97638a74746ed32b7774"
+    },
+    {
+      "os": "linux",
+      "arch": "x64",
+      "kind": "tar.gz",
+      "file": "Agente-agricola-1.0.0-linux-x64.tar.gz",
+      "size": 127864295,
+      "sha256": "dddf6249137428811ada5f5340eb3cf635f48f1808bf40230dacac0ab091b0b2"
+    },
+    {
+      "os": "windows",
+      "arch": "arm64",
+      "kind": "instalador",
+      "file": "Agente-agricola-1.0.0-windows-arm64-instalador.exe",
+      "size": 123590328,
+      "sha256": "7b49c086c9376e3082a006ab038d93a12f4c4c7b6ea0e116f34f5e1874d452e8"
+    },
+    {
+      "os": "windows",
+      "arch": "x64",
+      "kind": "portable",
+      "file": "Agente-agricola-1.0.0-windows-x64-portable.exe",
+      "size": 118426242,
+      "sha256": "9a3e5d03c85813a6c76e970b75e5d27e733387d6cdc392bd9ea2d0b109f74bc6"
+    }
+  ]
+}

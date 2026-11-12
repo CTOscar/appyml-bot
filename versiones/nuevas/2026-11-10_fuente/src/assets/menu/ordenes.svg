@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Órdenes de trabajo" role="img" viewBox="0 0 512 512">
+  <rect x="84" y="64" width="344" height="400" rx="40" fill="#34A853"/>
+  <rect x="116" y="112" width="280" height="320" rx="22" fill="#fff"/>
+  <rect x="172" y="32" width="168" height="76" rx="28" fill="#1A73E8"/>
+  <circle cx="256" cy="70" r="14" fill="#fff"/>
+  <g fill="none" stroke="#34A853" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M148 196l20 20 36-40"/><path d="M148 276l20 20 36-40"/>
+  </g>
+  <rect x="232" y="188" width="132" height="22" rx="11" fill="#4285F4"/>
+  <rect x="232" y="268" width="100" height="22" rx="11" fill="#FBBC04"/>
+  <rect x="148" y="348" width="216" height="22" rx="11" fill="#E8EAED"/>
+</svg>

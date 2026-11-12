@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#050a07" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content="Agente agrícola" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Agente agrícola" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="/bot/manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="/bot/icon-192.png" />
+    <link rel="apple-touch-icon" href="/bot/apple-touch-icon.png" />
+    <script>
+      /* Mismo tema que el panel (pf-theme), aplicado antes de pintar. */
+      try {
+        var m = localStorage.getItem('pf-theme') || 'auto', t = m;
+        if (m === 'auto') t = matchMedia('(prefers-contrast: more)').matches ? 'contraste' : matchMedia('(prefers-color-scheme: light)').matches ? 'claro' : 'noche';
+        if (/^[a-z][a-z0-9-]{1,23}$/.test(t)) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    </script>
+    <title>Agente agrícola · Las Cabras</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/bot/main.jsx"></script>
+  </body>
+</html>

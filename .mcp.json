@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "panel-design": {
+      "command": "node",
+      "args": ["versiones/nuevas/2026-11-10_fuente/design/mcp-server.mjs"]
+    },
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    },
+    "nodejs-debugger": {
+      "command": "npx",
+      "args": ["-y", "@hyperdrive-eng/mcp-nodejs-debugger"]
+    },
+    "nodejs-api-docs": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-nodejs-api-docs"]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}

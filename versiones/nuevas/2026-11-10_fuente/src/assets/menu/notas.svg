@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Notas" role="img" viewBox="0 0 512 512">
+  <path fill="#FBBC04" d="M72 72h368v264L328 448H72z"/>
+  <path fill="#F29900" d="M328 448V336h112z"/>
+  <rect x="128" y="140" width="256" height="26" rx="13" fill="#fff" opacity=".85"/>
+  <rect x="128" y="206" width="256" height="26" rx="13" fill="#fff" opacity=".85"/>
+  <rect x="128" y="272" width="170" height="26" rx="13" fill="#fff" opacity=".85"/>
+  <circle cx="400" cy="92" r="34" fill="#EA4335"/>
+</svg>
